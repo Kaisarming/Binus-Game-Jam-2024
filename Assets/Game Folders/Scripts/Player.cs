@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,31 @@ public class Player : MonoBehaviour
     public SpriteRenderer sr;
 
     private Animator _animator;
-    private int _idleHash, _walkHash, _jumpHash; // int hash animation
+    private int _idleHash, _walkHash, _jumpHash, _diedHash; // int hash animation
+
+    private TimerController _timerController;
+    private bool _isDead;
+
+    private void Awake()
+    {
+        _timerController = FindObjectOfType<TimerController>();
+    }
+
+    private void OnEnable()
+    {
+        if (_timerController != null)
+        {
+            _timerController.OnTimesUp += PlayerDead;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_timerController != null)
+        {
+            _timerController.OnTimesUp -= PlayerDead;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +46,14 @@ public class Player : MonoBehaviour
         _idleHash = Animator.StringToHash("idle");
         _walkHash = Animator.StringToHash("walk");
         _jumpHash = Animator.StringToHash("jump");
+        _diedHash = Animator.StringToHash("died");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_isDead) return;
+        
         // KeyCode = True on the frame that the up arrow is pressed down
         if (Input.GetKeyDown(KeyCode.W) && IsOnTheGround())
         {
@@ -47,6 +75,15 @@ public class Player : MonoBehaviour
         }
 
         PlayAnimation();
+    }
+    
+    private void FixedUpdate()
+    {
+        if (_isDead) return;
+
+        float xInput = Input.GetAxisRaw("Horizontal");
+        // Velocity is the direction and speed  that the rigidbody is moving in
+        myRig.velocity = new Vector2(xInput * moveSpeed, myRig.velocity.y);
     }
 
     private void PlayAnimation()
@@ -70,12 +107,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        float xInput = Input.GetAxisRaw("Horizontal");
-        // Velocity is the direction and speed  that the rigidbody is moving in
-        myRig.velocity = new Vector2(xInput * moveSpeed, myRig.velocity.y);
-    }
 
     bool IsOnTheGround()
     {
@@ -84,6 +115,17 @@ public class Player : MonoBehaviour
         return hit.collider != null;
     }
 
+    private void PlayerDead(object sender, EventArgs e)
+    {
+        _isDead = true;
+        
+        myRig.velocity = Vector2.zero;
+        
+        Destroy(myRig);
+        
+        _animator.Play(_diedHash);
+    }
+    
     // We make GameOver() to public because we want to call it in Enemy.cs function called "private void OnCollisionEnter2D(Collision2D other)"
     public void GameOver()
     {
