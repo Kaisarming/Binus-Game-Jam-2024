@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8469200500837412362}
   - component: {fileID: 8469200500837412374}
   - component: {fileID: 1274497282}
+  - component: {fileID: 6241064587671651834}
   m_Layer: 6
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -221,6 +222,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6241064587671651834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469200500837412363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53d8c595ea33524a9a825a58eeb0d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 1
+  pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
+  pointHealthBar: {fileID: 7859083320303638253}
+  aiPath: {fileID: 8469200500837412361}
 --- !u!1 &8469200501350180763
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8469200501350180761}
   - component: {fileID: 8469200501350180762}
-  - component: {fileID: 8469200501350180760}
   - component: {fileID: 1989947875}
   m_Layer: 6
   m_Name: FlyGFX
@@ -307,19 +323,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8469200501350180760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469200501350180763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a53d8c595ea33524a9a825a58eeb0d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiPath: {fileID: 8469200500837412361}
 --- !u!95 &1989947875
 Animator:
   serializedVersion: 5

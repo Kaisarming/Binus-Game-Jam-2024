@@ -199,5 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed1dc4852db40b4daf67b9de08e83e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMax: 1
+  pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
+  pointHealthBar: {fileID: 2666356101951890987}
   targetPosition: {x: 15.92, y: 0.7, z: 0}
   moveSpeed: 5
