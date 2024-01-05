@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class TimerController : MonoBehaviour
 {
+    public static TimerController Instance;
+
     public event EventHandler OnTickChanged; // event detik berubah
     public event EventHandler OnTimesUp; // event waktu habis
 
     [SerializeField] private int initialTime;
     [SerializeField] private float timerSpeed = 1; // 1 = normal
-    [SerializeField] private TextMeshProUGUI timeText;
+    //[SerializeField] private TextMeshProUGUI timeText;
 
     private float _currentTime;
     private bool _isTimeRunning;
 
     private float _stepCount;
     private const int StepTime = 1; // every a second trigger
-    
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     /// <summary>
     /// Set Initial Time to Integer Value
     /// </summary>
@@ -72,7 +82,7 @@ public class TimerController : MonoBehaviour
         _isTimeRunning = true;
         
         // set text timer
-        timeText.text = initialTime.ToString();
+        //timeText.text = initialTime.ToString();
         
         // declaration variable _currentTime
         _currentTime = initialTime;
@@ -88,7 +98,7 @@ public class TimerController : MonoBehaviour
         this.initialTime = newInitialTime;
         
         // set text timer
-        timeText.text = initialTime.ToString();
+        //timeText.text = initialTime.ToString();
         
         // declaration variable _currentTime
         _currentTime = initialTime;
@@ -99,7 +109,7 @@ public class TimerController : MonoBehaviour
 
     public void SetTextTimer(string text)
     {
-        timeText.text = text;
+        //timeText.text = text;
     }
     
     public void ResumeTimer()
@@ -125,7 +135,7 @@ public class TimerController : MonoBehaviour
             var currentTimeInt = Mathf.CeilToInt(_currentTime);
             var stepCountInt = Mathf.CeilToInt(_stepCount);
 
-            timeText.text = _currentTime.ToString("F1");
+            //timeText.text = _currentTime.ToString("F1");
 
             // tick trigger / every step time trigger
             if (stepCountInt - currentTimeInt == StepTime)
@@ -148,7 +158,7 @@ public class TimerController : MonoBehaviour
 
             _currentTime = 0;
 
-            timeText.text = _currentTime.ToString();
+            //timeText.text = _currentTime.ToString();
 
             // event trigger to on times up!
             OnTimesUp?.Invoke(this, EventArgs.Empty);
