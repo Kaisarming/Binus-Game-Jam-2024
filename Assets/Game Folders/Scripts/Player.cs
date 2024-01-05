@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
     }
 
 
-    bool IsOnTheGround()
+    private bool IsOnTheGround()
     {
         // A raycast shot from an origin in a direction for a certain distance, that means it can tell us if it hits anything
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1f, 0), Vector2.down, 0.2f);
