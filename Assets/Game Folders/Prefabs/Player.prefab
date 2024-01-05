@@ -189,7 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc0767e0f9bf994eb7aff8388c3a13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMax: 5
+  pfHealthBar: {fileID: 8761742499161593724, guid: a2786d0aa55733e4886e835d8be0c993, type: 3}
+  pointHealthBar: {fileID: 6038843776845453133}
   moveSpeed: 5
   myRig: {fileID: 7907056498780924731}
-  jump: 8
+  jump: 10
   sr: {fileID: 7907056498780924730}

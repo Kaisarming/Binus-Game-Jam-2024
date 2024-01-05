@@ -4897,14 +4897,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1768260947, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6038843776845453133, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7907056498780924729, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4949,28 +4941,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7907056498780924730, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1055344971, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
-    - target: {fileID: 7907056498780924730, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907056498780924731, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7907056498780924733, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
       propertyPath: jump
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7907056498780924734, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907056498780924734, guid: caa8de69bcf059b46a09464c5fbf5b9d, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5457,6 +5433,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175803119922864743, guid: 068ba0da13dc17144b8a21eaa7252888, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175803120972510835, guid: 068ba0da13dc17144b8a21eaa7252888, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175803121905526387, guid: 068ba0da13dc17144b8a21eaa7252888, type: 3}
+      propertyPath: m_text
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
