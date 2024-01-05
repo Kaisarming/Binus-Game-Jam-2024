@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: enemy_fly_idle
+  m_Name: enemy_crab_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2146096370, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
+      value: {fileID: -610364686, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
     - time: 0.125
-      value: {fileID: -89933686, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
+      value: {fileID: 1953560747, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
     - time: 0.25
-      value: {fileID: 354894478, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
+      value: {fileID: -1411522660, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,9 +44,9 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2146096370, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
-    - {fileID: -89933686, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
-    - {fileID: 354894478, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
+    - {fileID: -610364686, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
+    - {fileID: 1953560747, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
+    - {fileID: -1411522660, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
