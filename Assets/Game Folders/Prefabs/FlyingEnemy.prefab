@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8469200500837412362}
   - component: {fileID: 8469200500837412374}
   - component: {fileID: 1274497282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FlyingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 8469200501350180762}
   - component: {fileID: 8469200501350180760}
   - component: {fileID: 1989947875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FlyGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
