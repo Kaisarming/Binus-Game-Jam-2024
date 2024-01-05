@@ -3,7 +3,8 @@ public enum Gamestate
     Menu,
     Game,
     Pause,
-    GameOver
+    GameOver,
+    Credit
 }
 
 public enum PageName
@@ -11,5 +12,6 @@ public enum PageName
     Menu,
     Game,
     Pause,
-    GameOver
+    GameOver,
+    Credit
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuPage : Page
 {
     [SerializeField] private Button playButton;
+    [SerializeField] private Button creditButton;
     [SerializeField] private Button exitButton;
 
     protected override void Start()
@@ -13,6 +14,7 @@ public class MenuPage : Page
         base.Start();
 
         playButton.onClick.AddListener(() => ChangeScene("Gameplay"));
+        creditButton.onClick.AddListener(() => GameManager.Instance.ChangeState(Gamestate.Credit));
         exitButton.onClick.AddListener(() => Application.Quit());
     }
 }
