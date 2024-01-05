@@ -13,7 +13,7 @@ public class MenuPage : Page
     {
         base.Start();
 
-        playButton.onClick.AddListener(() => ChangeScene("Gameplay"));
+        playButton.onClick.AddListener(() => GameManager.Instance.ChangeState(Gamestate.Level));
         creditButton.onClick.AddListener(() => GameManager.Instance.ChangeState(Gamestate.Credit));
         exitButton.onClick.AddListener(() => Application.Quit());
     }

@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if(collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            CollectItem();
         }
+    }
+
+    protected virtual void CollectItem()
+    {
+        Destroy(gameObject);
     }
 }

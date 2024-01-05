@@ -4,7 +4,8 @@ public enum Gamestate
     Game,
     Pause,
     GameOver,
-    Credit
+    Credit,
+    Level
 }
 
 public enum PageName
@@ -13,5 +14,6 @@ public enum PageName
     Game,
     Pause,
     GameOver,
-    Credit
+    Credit,
+    Level
 }
