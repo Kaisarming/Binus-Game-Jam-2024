@@ -124,6 +124,7 @@ public class Player : MonoBehaviour
         Destroy(myRig);
         
         _animator.Play(_diedHash);
+        GameManager.Instance.ChangeState(Gamestate.GameOver);
     }
     
     // We make GameOver() to public because we want to call it in Enemy.cs function called "private void OnCollisionEnter2D(Collision2D other)"

@@ -34,12 +34,15 @@ public class CanvasManager : MonoBehaviour
             case Gamestate.Pause:
                 break;
             case Gamestate.GameOver:
+                SetPage(PageName.Result);
                 break;
             case Gamestate.Credit:
                 SetPage(PageName.Credit);
                 break;
             case Gamestate.Level:
                 SetPage(PageName.Level);
+                break;
+            case Gamestate.Result:
                 break;
         }
     }
