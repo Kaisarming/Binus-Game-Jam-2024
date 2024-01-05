@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7907056498780924729}
   - component: {fileID: 7907056498780924730}
   - component: {fileID: 7907056498780924731}
-  - component: {fileID: 7907056498780924732}
+  - component: {fileID: 1673650575}
+  - component: {fileID: 1673650570}
   - component: {fileID: 7907056498780924733}
   m_Layer: 0
   m_Name: Player
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1055344971, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,13 +104,13 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f6627e94e50302940be2c4b9526a95ac, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &7907056498780924732
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!70 &1673650575
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,18 +123,28 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.4375}
-    newSize: {x: 1.25, y: 1.4375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.25, y: 1.4375}
-  m_EdgeRadius: 0
+  m_Direction: 0
+--- !u!95 &1673650570
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907056498780924734}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75b6e5f7d7afee347b7430397384967f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &7907056498780924733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,5 +159,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   myRig: {fileID: 7907056498780924731}
-  jump: 5
+  jump: 8
   sr: {fileID: 7907056498780924730}

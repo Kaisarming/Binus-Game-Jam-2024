@@ -10,10 +10,17 @@ public class Player : MonoBehaviour
     public float jump;
     public SpriteRenderer sr;
 
+    private Animator _animator;
+    private int _idleHash, _walkHash, _jumpHash; // int hash animation
+
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponent<Animator>();
 
+        _idleHash = Animator.StringToHash("idle");
+        _walkHash = Animator.StringToHash("walk");
+        _jumpHash = Animator.StringToHash("jump");
     }
 
     // Update is called once per frame
@@ -37,6 +44,29 @@ public class Player : MonoBehaviour
         else if (myRig.velocity.x < 0)
         {
             sr.flipX = false;
+        }
+
+        PlayAnimation();
+    }
+
+    private void PlayAnimation()
+    {
+        if (myRig.velocity.y > 0.01f)
+        {
+            // play animation jump
+            if (_animator.GetCurrentAnimatorStateInfo(0).tagHash == _jumpHash) return;
+            _animator.Play(_jumpHash);
+        } else if (Mathf.Abs(myRig.velocity.x) > 0.01f && IsOnTheGround())
+        {
+            // play animation walk
+            if (_animator.GetCurrentAnimatorStateInfo(0).tagHash == _walkHash) return;
+            _animator.Play(_walkHash);
+        }
+        else if (Mathf.Abs(myRig.velocity.x) <= 0.01f && Mathf.Abs(myRig.velocity.y) <= 0.01f && IsOnTheGround())
+        {
+            // play animation idle
+            if (_animator.GetCurrentAnimatorStateInfo(0).tagHash == _idleHash) return;
+            _animator.Play(_idleHash);
         }
     }
 
