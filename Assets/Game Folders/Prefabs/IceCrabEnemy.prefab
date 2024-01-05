@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 32.11, y: -3.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7485393574811591147}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,6 +168,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce78fcae5890c649b70d898d6c0c995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMax: 1
+  pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
+  pointHealthBar: {fileID: 7485393574811591147}
   targetPosition: {x: 19.91, y: -3.51625, z: 0}
   moveSpeed: 5
   srEnemy: {fileID: 5470298996931841149}
+--- !u!1 &6969233601319853936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7485393574811591147}
+  m_Layer: 6
+  m_Name: pointHealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7485393574811591147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969233601319853936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.945, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5470298996931841146}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

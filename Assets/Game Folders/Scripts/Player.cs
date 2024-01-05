@@ -4,22 +4,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// before canvas manager script execution
+[DefaultExecutionOrder(0)]
 public class Player : MonoBehaviour
 {
+    [Header("Attributes :")] [SerializeField]
+    private int healthMax;
+
+    [SerializeField] private GameObject pfHealthBar;
+    [SerializeField] private Transform pointHealthBar;
+    private HealthSystem _healthSystem;
+
+    public HealthSystem HealthSystemPlayer
+    {
+        get
+        {
+            return _healthSystem;
+        }
+    }
+    
+    [Space(10)]
+
+    // mechanic variable
     public float moveSpeed;
+
     public Rigidbody2D myRig;
     public float jump;
     public SpriteRenderer sr;
 
+    // animation variable
     private Animator _animator;
     private int _idleHash, _walkHash, _jumpHash, _diedHash; // int hash animation
 
+    // timer variable
     private TimerController _timerController;
     private bool _isDead;
 
     private void Awake()
     {
         _timerController = FindObjectOfType<TimerController>();
+
+        // health setup
+        var newHealthBar = Instantiate(pfHealthBar, pointHealthBar.position, Quaternion.identity, transform);
+        var healthBar = newHealthBar.GetComponent<HealthBar>();
+        _healthSystem = new HealthSystem(healthMax);
+        healthBar.Setup(_healthSystem);
+        
+        // add listener to health system
+        _healthSystem.OnHealthChanged += HealthChanged;
+    }
+
+    private void HealthChanged(object sender, EventArgs e)
+    {
+        // blood runs out!
+        if (_healthSystem.GetHealth() == 0)
+        {
+            PlayerDead(null, null);
+        }
     }
 
     private void OnEnable()
@@ -53,7 +94,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (_isDead) return;
-        
+
         // KeyCode = True on the frame that the up arrow is pressed down
         if (Input.GetKeyDown(KeyCode.W) && IsOnTheGround())
         {
@@ -76,7 +117,7 @@ public class Player : MonoBehaviour
 
         PlayAnimation();
     }
-    
+
     private void FixedUpdate()
     {
         if (_isDead) return;
@@ -93,7 +134,8 @@ public class Player : MonoBehaviour
             // play animation jump
             if (_animator.GetCurrentAnimatorStateInfo(0).tagHash == _jumpHash) return;
             _animator.Play(_jumpHash);
-        } else if (Mathf.Abs(myRig.velocity.x) > 0.01f && IsOnTheGround())
+        }
+        else if (Mathf.Abs(myRig.velocity.x) > 0.01f && IsOnTheGround())
         {
             // play animation walk
             if (_animator.GetCurrentAnimatorStateInfo(0).tagHash == _walkHash) return;
@@ -118,15 +160,15 @@ public class Player : MonoBehaviour
     private void PlayerDead(object sender, EventArgs e)
     {
         _isDead = true;
-        
+
         myRig.velocity = Vector2.zero;
-        
+
         Destroy(myRig);
-        
+
         _animator.Play(_diedHash);
         GameManager.Instance.ChangeState(Gamestate.GameOver);
     }
-    
+
     // We make GameOver() to public because we want to call it in Enemy.cs function called "private void OnCollisionEnter2D(Collision2D other)"
     public void GameOver()
     {

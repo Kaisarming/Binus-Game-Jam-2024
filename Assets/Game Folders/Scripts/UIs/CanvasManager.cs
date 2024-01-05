@@ -1,25 +1,55 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// after player script execution
+[DefaultExecutionOrder(1)]
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField] protected Page[] allPages;
     [SerializeField] private Image fading;
+    [SerializeField] private TextMeshProUGUI heartText;
+
+    private GameObject _player;
+
+    private void Awake()
+    {
+        // add listener heart from player
+        _player = GameObject.FindWithTag("Player");
+        if (_player != null)
+        {
+            var player = _player.GetComponent<Player>();
+            player.HealthSystemPlayer.OnHealthChanged += HealthChanged;
+        }
+    }
 
     private void Start()
     {
         allPages = GetComponentsInChildren<Page>(true);
-    
+
         GameManager.Instance.OnStateChanged += Instance_OnStateChanged;
         fading.color = new Color(0, 0, 0, 1f);
         fading.CrossFadeAlpha(0f, 1f, false);
+
+        if (_player != null)
+        {
+            var player = _player.GetComponent<Player>();
+            HealthChanged(sender: null, e: null);
+        }
     }
+
     private void OnDisable()
     {
         GameManager.Instance.OnStateChanged -= Instance_OnStateChanged;
+
+        if (_player != null)
+        {
+            var player = _player.GetComponent<Player>();
+            player.HealthSystemPlayer.OnHealthChanged -= HealthChanged;
+        }
     }
 
     private void Instance_OnStateChanged(Gamestate newState)
@@ -55,9 +85,15 @@ public class CanvasManager : MonoBehaviour
         }
 
         Page findPage = Array.Find(allPages, p => p.namaPage == nama);
-        if(findPage != null)
+        if (findPage != null)
         {
             findPage.gameObject.SetActive(true);
         }
+    }
+
+    private void HealthChanged(object sender, EventArgs e)
+    {
+        var player = _player.GetComponent<Player>();
+        heartText.text = player.HealthSystemPlayer.GetHealth().ToString();
     }
 }
