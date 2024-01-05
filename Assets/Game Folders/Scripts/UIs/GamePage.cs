@@ -11,6 +11,10 @@ public class GamePage : Page
 
     private void OnEnable()
     {
+        if(GameSetting.Instance == null)
+        {
+            return;
+        }
         GameSetting.Instance.OnItemCollected += Instance_OnItemCollected;
     }
 
