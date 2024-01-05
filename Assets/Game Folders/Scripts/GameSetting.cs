@@ -28,6 +28,11 @@ public class GameSetting : MonoBehaviour
 
     private void SetupLevel()
     {
+        if(GameManager.Instance == null)
+        {
+            return;
+        }
+
         Instantiate(allLevels[GameManager.Instance.GetActiveLevelData().levelIndex], transform.position, Quaternion.identity);
     }
 
