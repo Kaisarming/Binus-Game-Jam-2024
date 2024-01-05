@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelData activeLevelData;
 
     [SerializeField] private LevelData[] allLevelData;
+
+    private string path;
 
     public delegate void ChangeStateDelegate(Gamestate newState);
     public event ChangeStateDelegate OnStateChanged;
@@ -26,6 +29,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+        path = Application.persistentDataPath + "/Save";
+
+        if(File.Exists(path))
+        {
+            LoadGame();
+        }
+        else
+        {
+            SaveGame();
+        }
     }
 
     public LevelData[] GetLevelData()
@@ -43,6 +56,12 @@ public class GameManager : MonoBehaviour
         activeLevelData = allLevelData[n];
     }
 
+    public void UnlockNewLevel(int n)
+    {
+        allLevelData[n].isOpen = true;
+        SaveGame();
+    }
+
     public void ChangeState(Gamestate newState)
     {
         if(newState == currentState)
@@ -52,6 +71,18 @@ public class GameManager : MonoBehaviour
 
         currentState = newState;
         OnStateChanged?.Invoke(newState);
+    }
+
+    public void SaveGame()
+    {
+        string json = JsonUtility.ToJson(allLevelData);
+        File.WriteAllText(path, json);
+    }
+
+    public void LoadGame()
+    {
+        string json = File.ReadAllText(path);
+        allLevelData = JsonUtility.FromJson<LevelData[]>(json);
     }
 }
 

@@ -9,6 +9,8 @@ public class GameSetting : MonoBehaviour
     private int coinTemp = 0;
     private int healthTemp = 0;
 
+    public bool isWin;
+
     [SerializeField] private GameObject[] allLevels;
 
     public delegate void ItemCollectDelegate(ItemType tipe , int jumlah);
