@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        path = Application.persistentDataPath + "/Save";
+        //path = Application.persistentDataPath + "/Save";
 
         if(File.Exists(path))
         {
@@ -75,14 +75,14 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        string json = JsonUtility.ToJson(allLevelData);
-        File.WriteAllText(path, json);
+        //string json = JsonUtility.ToJson(allLevelData);
+        //File.WriteAllText(path, json);
     }
 
     public void LoadGame()
     {
-        string json = File.ReadAllText(path);
-        allLevelData = JsonUtility.FromJson<LevelData[]>(json);
+        //string json = File.ReadAllText(path);
+        //allLevelData = JsonUtility.FromJson<LevelData[]>(json);
     }
 }
 
