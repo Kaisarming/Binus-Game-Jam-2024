@@ -32,6 +32,8 @@ public class AudioManager : MonoBehaviour
             item.source.volume = item.vol;
             item.source.loop = item.isLooping;
         }
+
+        MainkanSuara("BGM");
     }
 
     public void MainkanSuara(string findSound)

@@ -74,6 +74,9 @@ public class CanvasManager : MonoBehaviour
                 break;
             case Gamestate.Result:
                 break;
+            case Gamestate.Tutorial:
+                SetPage(PageName.tutorial);
+                break;
         }
     }
 

@@ -26,7 +26,7 @@ public class LevelPage : Page
         levelButton.onClick.AddListener(() =>
         {
             GameManager.Instance.SetActiveLevel(GameManager.Instance.GetLevelData()[selectedLevel].levelIndex);
-            ChangeScene("Gameplay");
+            GameManager.Instance.ChangeState(Gamestate.Tutorial);
         });
 
         leftButton.onClick.AddListener(PrevisiousLevel);

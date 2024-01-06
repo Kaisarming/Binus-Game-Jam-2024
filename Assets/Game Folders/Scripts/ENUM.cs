@@ -6,7 +6,8 @@ public enum Gamestate
     GameOver,
     Credit,
     Level,
-    Result
+    Result,
+    Tutorial
 }
 
 public enum PageName
@@ -17,5 +18,6 @@ public enum PageName
     GameOver,
     Credit,
     Level,
-    Result
+    Result,
+    tutorial
 }
