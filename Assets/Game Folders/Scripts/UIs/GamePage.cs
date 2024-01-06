@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GamePage : Page
 {
-    [SerializeField] private TMP_Text labelTimer;
     [SerializeField] private TMP_Text labelHeart;
     [SerializeField] private TMP_Text labelCoin;
 
