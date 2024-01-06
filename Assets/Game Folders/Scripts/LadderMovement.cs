@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LadderMovement : MonoBehaviour
@@ -8,7 +9,12 @@ public class LadderMovement : MonoBehaviour
     private bool isLadder;
     private bool isClimbing;
 
-    [SerializeField] private Rigidbody2D rb;
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
