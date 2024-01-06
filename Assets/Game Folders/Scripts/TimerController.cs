@@ -8,15 +8,16 @@ public class TimerController : MonoBehaviour
     public event EventHandler OnTimesUp; // event waktu habis
 
     [SerializeField] private int initialTime;
+    [SerializeField] private int initialCounterStart;
     [SerializeField] private float timerSpeed = 1; // 1 = normal
     [SerializeField] private TextMeshProUGUI timeText;
-
+    [SerializeField] private GameObject pfCounterStart;
+    private GameObject _counterStart;
     private float _currentTime;
     private bool _isTimeRunning;
-
     private float _stepCount;
     private const int StepTime = 1; // every a second trigger
-    
+
     /// <summary>
     /// Set Initial Time to Integer Value
     /// </summary>
@@ -59,7 +60,7 @@ public class TimerController : MonoBehaviour
     {
         // update text
         SetTextTimer(initialTime.ToString());
-        
+
         // start timer
         StartTimer();
     }
@@ -69,14 +70,28 @@ public class TimerController : MonoBehaviour
     /// </summary>
     public void StartTimer()
     {
-        _isTimeRunning = true;
-        
+        _counterStart = Instantiate(pfCounterStart, transform);
+        var controller321 = _counterStart.GetComponent<Controller321>();
+        controller321.Setup(initialCounterStart);
+        controller321.OnCounterDone += ActivateTimer;
+
         // set text timer
         timeText.text = initialTime.ToString();
-        
+
         // declaration variable _currentTime
         _currentTime = initialTime;
         _stepCount = _currentTime;
+    }
+
+    private void ActivateTimer(object sender, EventArgs e)
+    {
+        // find player
+        var player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player.IsDead = false;
+        
+        ResumeTimer();
+
+        Destroy(_counterStart);
     }
 
     /// <summary>
@@ -86,32 +101,25 @@ public class TimerController : MonoBehaviour
     public void StartTimer(int newInitialTime)
     {
         this.initialTime = newInitialTime;
-        
-        // set text timer
-        timeText.text = initialTime.ToString();
-        
-        // declaration variable _currentTime
-        _currentTime = initialTime;
-        _stepCount = _currentTime;
 
-        _isTimeRunning = true;
+        StartTimer();
     }
 
     public void SetTextTimer(string text)
     {
         timeText.text = text;
     }
-    
+
     public void ResumeTimer()
     {
         _isTimeRunning = true;
     }
-    
+
     public void StopTimer()
     {
         _isTimeRunning = false;
     }
-    
+
     private void Update()
     {
         // operate only if the time is still running

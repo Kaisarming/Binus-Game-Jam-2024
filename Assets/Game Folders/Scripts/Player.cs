@@ -40,6 +40,18 @@ public class Player : MonoBehaviour
     private TimerController _timerController;
     private bool _isDead;
 
+    public bool IsDead
+    {
+        get
+        {
+            return _isDead;
+        }
+        set
+        {
+            _isDead = value;
+        }
+    }
+
     private void Awake()
     {
         _timerController = FindObjectOfType<TimerController>();
@@ -82,8 +94,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _isDead = true;
+        
         _animator = GetComponent<Animator>();
-
         _idleHash = Animator.StringToHash("idle");
         _walkHash = Animator.StringToHash("walk");
         _jumpHash = Animator.StringToHash("jump");
