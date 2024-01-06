@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cce2ac43dd9b343b9bfa121fc7c37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWin: 0
   allLevels:
   - {fileID: 6959092556735295749, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
-  - {fileID: 6959092556735295749, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
-  - {fileID: 6959092556735295749, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
-  - {fileID: 6959092556735295749, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
+  - {fileID: 1657671160316911717, guid: 4f3f590033c26e74d889e3e4cdcd70cf, type: 3}
+  - {fileID: 8693478024871900900, guid: 9753bc07884e2f2468cb41b37fc63fac, type: 3}
+  - {fileID: 274549526348844388, guid: 5e94d126aafb5ee4cbed8caedd159ee3, type: 3}
   - {fileID: 6959092556735295749, guid: be822eefa4aff764ea120c83f94435c2, type: 3}

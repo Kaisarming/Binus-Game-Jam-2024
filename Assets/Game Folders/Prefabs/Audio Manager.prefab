@@ -60,3 +60,8 @@ MonoBehaviour:
     vol: 0.8
     isLooping: 0
     source: {fileID: 0}
+  - namaSound: Coin
+    klip: {fileID: 8300000, guid: 73691c8afe8c6f14e8f7154aa1343cd6, type: 3}
+    vol: 0.8
+    isLooping: 0
+    source: {fileID: 0}

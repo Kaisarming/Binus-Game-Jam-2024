@@ -9,12 +9,9 @@ public class GamePage : Page
     [SerializeField] private TMP_Text labelHeart;
     [SerializeField] private TMP_Text labelCoin;
 
-    private void OnEnable()
+    protected override void Start()
     {
-        if(GameSetting.Instance == null)
-        {
-            return;
-        }
+        base.Start();    
         GameSetting.Instance.OnItemCollected += Instance_OnItemCollected;
     }
 
