@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
 {
     [Header("Attributes :")] [SerializeField]
     private int healthMax;
-
     [SerializeField] private GameObject pfHealthBar;
     [SerializeField] private Transform pointHealthBar;
     private HealthSystem _healthSystem;
@@ -22,6 +21,9 @@ public class Player : MonoBehaviour
             return _healthSystem;
         }
     }
+    
+    // attack area parent
+    [SerializeField] private Transform attackAreaParent;
     
     [Space(10)]
 
@@ -120,10 +122,16 @@ public class Player : MonoBehaviour
         if (myRig.velocity.x > 0)
         {
             sr.flipX = true;
+            
+            // change place attack area ahead
+            attackAreaParent.localScale = new Vector3(1, 1, 1);
         }
         else if (myRig.velocity.x < 0)
         {
             sr.flipX = false;
+
+            // change place attack area ahead
+            attackAreaParent.localScale = new Vector3(-1, 1, 1);
         }
 
         PlayAnimation();
