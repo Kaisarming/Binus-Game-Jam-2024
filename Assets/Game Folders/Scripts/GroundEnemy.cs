@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat;
 using UnityEngine;
 
+[RequireComponent(typeof(TargetCombat))]
 public class GroundEnemy : MonoBehaviour
 {
     [Header("Attributes :")] [SerializeField]
@@ -34,6 +36,9 @@ public class GroundEnemy : MonoBehaviour
         var healthBar = newHealthBar.GetComponent<HealthBar>();
         _healthSystem = new HealthSystem(healthMax);
         healthBar.Setup(_healthSystem);
+
+        // assign health to target combat component
+        GetComponent<TargetCombat>().Health = _healthSystem;
         
         // add listener to health system
         _healthSystem.OnHealthChanged += HealthChanged;
@@ -87,6 +92,7 @@ public class GroundEnemy : MonoBehaviour
         if (_healthSystem.GetHealth() == 0)
         {
             // this enemy dead
+            Destroy(this.gameObject);
         }
     }
 }
