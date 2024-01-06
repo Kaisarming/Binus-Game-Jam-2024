@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LevelData[] allLevelData;
 
-    private string path;
-
     public delegate void ChangeStateDelegate(Gamestate newState);
     public event ChangeStateDelegate OnStateChanged;
 
@@ -29,9 +27,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        //path = Application.persistentDataPath + "/Save";
 
-        if(File.Exists(path))
+        if(PlayerPrefs.HasKey(allLevelData[1].namaLevel))
         {
             LoadGame();
         }
@@ -75,14 +72,21 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        //string json = JsonUtility.ToJson(allLevelData);
-        //File.WriteAllText(path, json);
+        for (int i = 0; i < allLevelData.Length; i++)
+        {
+            if(allLevelData[i].isOpen)
+            {
+                PlayerPrefs.SetInt(allLevelData[i].namaLevel, 1);
+            }
+        }
     }
 
     public void LoadGame()
     {
-        //string json = File.ReadAllText(path);
-        //allLevelData = JsonUtility.FromJson<LevelData[]>(json);
+        for (int i = 0; i < allLevelData.Length; i++)
+        {
+            allLevelData[i].isOpen = PlayerPrefs.HasKey(allLevelData[i].namaLevel);
+        }
     }
 }
 
