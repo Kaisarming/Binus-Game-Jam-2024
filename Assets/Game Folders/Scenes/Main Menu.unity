@@ -3262,6 +3262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allPages: []
   fading: {fileID: 1621066177}
+  heartText: {fileID: 0}
 --- !u!1 &1166252948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,7 +3828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Senkuishigami
+  m_text: Sariep
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a749395091eb95940a87df807e4c588e, type: 2}
   m_sharedMaterial: {fileID: -1327615360548981564, guid: a749395091eb95940a87df807e4c588e, type: 2}
