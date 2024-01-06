@@ -58,6 +58,10 @@ public class TimerController : MonoBehaviour
 
     private void Start()
     {
+        // find player
+        var player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player.IsDead = true;
+        
         // update text
         SetTextTimer(initialTime.ToString());
 

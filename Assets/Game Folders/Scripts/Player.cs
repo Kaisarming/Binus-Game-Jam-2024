@@ -94,8 +94,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _isDead = true;
-        
         _animator = GetComponent<Animator>();
         _idleHash = Animator.StringToHash("idle");
         _walkHash = Animator.StringToHash("walk");
