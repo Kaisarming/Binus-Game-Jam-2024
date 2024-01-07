@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class GameManager : MonoBehaviour
 {
     public event EventHandler OnGameWin;
-    
+
     public static GameManager Instance;
 
     [SerializeField] private Gamestate currentState;
@@ -18,11 +17,12 @@ public class GameManager : MonoBehaviour
     private string path;
 
     public delegate void ChangeStateDelegate(Gamestate newState);
+
     public event ChangeStateDelegate OnStateChanged;
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -30,10 +30,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-        //path = Application.persistentDataPath + "/Save";
 
-        if(File.Exists(path))
+        DontDestroyOnLoad(gameObject);
+
+        path = Application.persistentDataPath + "/Save.dat";
+
+        if (File.Exists(path))
         {
             LoadGame();
         }
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeState(Gamestate newState)
     {
-        if(newState == currentState)
+        if (newState == currentState)
         {
             return;
         }
@@ -78,20 +80,20 @@ public class GameManager : MonoBehaviour
         {
             OnGameWin?.Invoke(this, EventArgs.Empty);
         }
-        
+
         OnStateChanged?.Invoke(newState);
     }
 
     public void SaveGame()
     {
-        //string json = JsonUtility.ToJson(allLevelData);
-        //File.WriteAllText(path, json);
+        var json = JsonConvert.SerializeObject(allLevelData, formatting: Formatting.Indented);
+        File.WriteAllText(path, json);
     }
 
     public void LoadGame()
     {
-        //string json = File.ReadAllText(path);
-        //allLevelData = JsonUtility.FromJson<LevelData[]>(json);
+        string json = File.ReadAllText(path);
+        allLevelData = JsonConvert.DeserializeObject<LevelData[]>(json);
     }
 }
 
