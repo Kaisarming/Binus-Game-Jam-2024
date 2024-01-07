@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8469200500837412374}
   - component: {fileID: 1274497282}
   - component: {fileID: 6241064587671651834}
+  - component: {fileID: 1931878397055626049}
   m_Layer: 6
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -238,6 +239,19 @@ MonoBehaviour:
   pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
   pointHealthBar: {fileID: 7859083320303638253}
   aiPath: {fileID: 8469200500837412361}
+  aiDestinationSetter: {fileID: 8469200500837412362}
+--- !u!114 &1931878397055626049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469200500837412363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c5e28a136b4f5d81e78108e57ae999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8469200501350180763
 GameObject:
   m_ObjectHideFlags: 0
