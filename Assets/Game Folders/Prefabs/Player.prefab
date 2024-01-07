@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 7907056498780924733}
   - component: {fileID: 1598178144596854343}
   - component: {fileID: 7472658376323795100}
+  - component: {fileID: 1709474221715746803}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -336,3 +337,15 @@ MonoBehaviour:
   basicAttack: 1
   pfSlashEffect: {fileID: 362033785405321893, guid: 53c33fa258e9be54384639fab2c06c11, type: 3}
   pointSlashEffect: {fileID: 8993079186437904168}
+--- !u!114 &1709474221715746803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907056498780924734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c5e28a136b4f5d81e78108e57ae999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -271,18 +271,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3845075166672152085, guid: 16d104394f8f08b469f5120466b8d65a, type: 3}
-      propertyPath: targetPosition.x
-      value: -1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845075166672152085, guid: 16d104394f8f08b469f5120466b8d65a, type: 3}
-      propertyPath: targetPosition.y
-      value: -0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845075166672152085, guid: 16d104394f8f08b469f5120466b8d65a, type: 3}
-      propertyPath: targetPosition.z
-      value: -0.005810931
-      objectReference: {fileID: 0}
     - target: {fileID: 3845075166672152086, guid: 16d104394f8f08b469f5120466b8d65a, type: 3}
       propertyPath: m_Name
       value: CrabEnemy
@@ -329,6 +317,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3845075166672152087, guid: 16d104394f8f08b469f5120466b8d65a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525108096977276364, guid: 16d104394f8f08b469f5120466b8d65a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

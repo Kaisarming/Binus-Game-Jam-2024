@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject pfHealthBar;
     [SerializeField] private Transform pointHealthBar;
     private HealthSystem _healthSystem;
+    private HealthBar _healthBar;
     public HealthSystem HealthSystemPlayer
     {
         get
@@ -62,9 +64,12 @@ public class Player : MonoBehaviour
 
         // health setup
         var newHealthBar = Instantiate(pfHealthBar, pointHealthBar.position, Quaternion.identity, transform);
-        var healthBar = newHealthBar.GetComponent<HealthBar>();
+        _healthBar = newHealthBar.GetComponent<HealthBar>();
         _healthSystem = new HealthSystem(healthMax);
-        healthBar.Setup(_healthSystem);
+        _healthBar.Setup(_healthSystem);
+        
+        // assign health to target combat component
+        GetComponent<TargetCombat>().Health = _healthSystem;
         
         // add listener to health system
         _healthSystem.OnHealthChanged += HealthChanged;
@@ -187,6 +192,8 @@ public class Player : MonoBehaviour
     {
         _animator.Play(_diedHash);
         StopPlayer();
+        
+        Destroy(_healthBar.gameObject);
         
         // game lose
         GameManager.Instance.ChangeState(Gamestate.GameOver);
