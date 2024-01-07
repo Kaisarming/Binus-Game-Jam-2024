@@ -212,6 +212,12 @@ public class Player : MonoBehaviour
             
             GameManager.Instance.ChangeState(Gamestate.Result);
         }
+
+        if (collision.CompareTag("Fall"))
+        {
+            _isDead = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
