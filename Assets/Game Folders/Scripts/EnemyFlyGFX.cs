@@ -26,6 +26,8 @@ public class EnemyFlyGFX : MonoBehaviour
     
     public AIPath aiPath;
 
+    public AIDestinationSetter aiDestinationSetter;
+
     private void Awake()
     {
         // health setup
@@ -39,6 +41,13 @@ public class EnemyFlyGFX : MonoBehaviour
         
         // add listener to health system
         _healthSystem.OnHealthChanged += HealthChanged;
+    }
+
+    private void Start()
+    {
+        var player = GameObject.FindWithTag("Player");
+
+        aiDestinationSetter.target = player.transform;
     }
 
     void Update()
