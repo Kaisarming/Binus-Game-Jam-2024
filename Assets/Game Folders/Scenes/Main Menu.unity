@@ -3347,7 +3347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Judul ada disini
+  m_text: Bobi Adventure
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a749395091eb95940a87df807e4c588e, type: 2}
   m_sharedMaterial: {fileID: -1327615360548981564, guid: a749395091eb95940a87df807e4c588e, type: 2}
@@ -4091,7 +4091,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allPages: []
   fading: {fileID: 1621066177}
-  heartText: {fileID: 0}
 --- !u!1 &1166252948
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,6 +5061,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1827686516302127234, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -42.62793
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827686516302127234, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160957843565113505, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -64.35437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160957843565113505, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.878052
+      objectReference: {fileID: 0}
     - target: {fileID: 3952198651677851699, guid: be822eefa4aff764ea120c83f94435c2, type: 3}
       propertyPath: m_RootOrder
       value: 5
