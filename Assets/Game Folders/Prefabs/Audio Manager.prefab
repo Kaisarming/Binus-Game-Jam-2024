@@ -70,6 +70,11 @@ MonoBehaviour:
     vol: 0.8
     isLooping: 0
     source: {fileID: 0}
+  - namaSound: 321
+    klip: {fileID: 8300000, guid: 6d9c7e8f685462e46a3b569dc70cae48, type: 3}
+    vol: 0.5
+    isLooping: 0
+    source: {fileID: 0}
   - namaSound: BGM
     klip: {fileID: 8300000, guid: e2422b1e7c70d2249b8b2d7576e64c85, type: 3}
     vol: 0.5

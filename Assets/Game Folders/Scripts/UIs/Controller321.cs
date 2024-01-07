@@ -11,9 +11,12 @@ public class Controller321 : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nText;
 
     private int _currentTime;
-
+    private int _once = 0;
+    
     public void Setup(int initialCounter)
     {
+        _once = 0;
+        
         startCounter = initialCounter;
 
         _currentTime = startCounter;
@@ -25,6 +28,17 @@ public class Controller321 : MonoBehaviour
 
     private void ReceiverFromAnimation()
     {
+        // once execute
+        if (_once < 1)
+        {
+            // play sound
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.MainkanSuara("321");
+                _once++;
+            }
+        }
+
         nText.text = _currentTime.ToString();
 
         switch (_currentTime)
