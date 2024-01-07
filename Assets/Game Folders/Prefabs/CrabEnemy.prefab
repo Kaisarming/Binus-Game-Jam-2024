@@ -84,7 +84,7 @@ MonoBehaviour:
   healthMax: 1
   pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
   pointHealthBar: {fileID: 6139202578256716673}
-  targetPosition: {x: 4, y: -2.3, z: 0}
+  targetPosition: {x: 239.75, y: -4.37, z: 0}
   moveSpeed: 5
   srEnemy: {fileID: 3845075166672152084}
 --- !u!212 &3845075166672152084
@@ -125,8 +125,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -632067781
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -610364686, guid: bce25244764422d4ebb31aeb6750f81f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
