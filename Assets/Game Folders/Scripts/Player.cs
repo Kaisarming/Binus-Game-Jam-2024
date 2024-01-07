@@ -187,6 +187,24 @@ public class Player : MonoBehaviour
         _animator.Play(_diedHash);
         GameManager.Instance.ChangeState(Gamestate.GameOver);
     }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+        {
+            _isDead = true;
+            
+            GameManager.Instance.ChangeState(Gamestate.Result);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+        {
+            // no code
+        }
+    }
 
     // We make GameOver() to public because we want to call it in Enemy.cs function called "private void OnCollisionEnter2D(Collision2D other)"
     public void GameOver()
