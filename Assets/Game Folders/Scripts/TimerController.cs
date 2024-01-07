@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
+[DefaultExecutionOrder(1)]
 public class TimerController : MonoBehaviour
 {
     public event EventHandler OnTickChanged; // event detik berubah
@@ -59,9 +60,16 @@ public class TimerController : MonoBehaviour
     private void Start()
     {
         // find player
+        if (GameObject.FindWithTag("Player") == null)
+        {
+            Destroy(gameObject);
+            
+            return;
+        }
+
         var player = GameObject.FindWithTag("Player").GetComponent<Player>();
         player.IsDead = true;
-        
+
         // update text
         SetTextTimer(initialTime.ToString());
 
@@ -99,7 +107,7 @@ public class TimerController : MonoBehaviour
         // find player
         var player = GameObject.FindWithTag("Player").GetComponent<Player>();
         player.IsDead = false;
-        
+
         ResumeTimer();
 
         Destroy(_counterStart);
