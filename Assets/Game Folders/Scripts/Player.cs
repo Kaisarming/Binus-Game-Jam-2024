@@ -11,24 +11,23 @@ public class Player : MonoBehaviour
 {
     [Header("Attributes :")] [SerializeField]
     private int healthMax;
+
     [SerializeField] private GameObject pfHealthBar;
     [SerializeField] private Transform pointHealthBar;
     private HealthSystem _healthSystem;
     private HealthBar _healthBar;
+
     public HealthSystem HealthSystemPlayer
     {
-        get
-        {
-            return _healthSystem;
-        }
+        get { return _healthSystem; }
     }
-    
+
     // ground layer mask
     [SerializeField] private LayerMask groundLayerMask;
-    
+
     // attack area parent
     [SerializeField] private Transform attackAreaParent;
-    
+
     [Space(10)]
 
     // mechanic variable
@@ -48,14 +47,8 @@ public class Player : MonoBehaviour
 
     public bool IsDead
     {
-        get
-        {
-            return _isDead;
-        }
-        set
-        {
-            _isDead = value;
-        }
+        get { return _isDead; }
+        set { _isDead = value; }
     }
 
     private void Awake()
@@ -67,10 +60,10 @@ public class Player : MonoBehaviour
         _healthBar = newHealthBar.GetComponent<HealthBar>();
         _healthSystem = new HealthSystem(healthMax);
         _healthBar.Setup(_healthSystem);
-        
+
         // assign health to target combat component
         GetComponent<TargetCombat>().Health = _healthSystem;
-        
+
         // add listener to health system
         _healthSystem.OnHealthChanged += HealthChanged;
     }
@@ -100,7 +93,7 @@ public class Player : MonoBehaviour
         {
             _timerController.OnTimesUp -= PlayerDead;
         }
-        
+
         GameManager.Instance.OnGameWin -= PlayerWin;
     }
 
@@ -129,11 +122,20 @@ public class Player : MonoBehaviour
             // AddForce can also be used by Vector2
             myRig.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && IsOnTheGround())
+        {
+            // AddForce = Components of the force in the X and Y axis
+            // ForceMode2D = Gradual force increase
+            // Impulse = Instant velocity (Add an instant force impulse to the rigidbody, using its mass.)
+            // Structure = AddForce(Vector3 force, ForceMode mode = ForceMode.Force);
+            // AddForce can also be used by Vector2
+            myRig.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
+        }
 
         if (myRig.velocity.x > 0)
         {
             sr.flipX = true;
-            
+
             // change place attack area ahead
             attackAreaParent.localScale = new Vector3(1, 1, 1);
         }
@@ -192,9 +194,9 @@ public class Player : MonoBehaviour
     {
         _animator.Play(_diedHash);
         StopPlayer();
-        
+
         Destroy(_healthBar.gameObject);
-        
+
         // game lose
         GameManager.Instance.ChangeState(Gamestate.GameOver);
     }
@@ -206,7 +208,7 @@ public class Player : MonoBehaviour
         // stop
         StopPlayer();
     }
-    
+
     private void StopPlayer()
     {
         _isDead = true;
@@ -219,7 +221,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Finish"))
         {
             _isDead = true;
-            
+
             GameManager.Instance.ChangeState(Gamestate.Result);
         }
 
