@@ -275,7 +275,7 @@ MonoBehaviour:
   attackAreaParent: {fileID: 2822204607891508745}
   moveSpeed: 5
   myRig: {fileID: 7907056498780924731}
-  jump: 18
+  jump: 30
   sr: {fileID: 7907056498780924730}
 --- !u!114 &1598178144596854343
 MonoBehaviour:
