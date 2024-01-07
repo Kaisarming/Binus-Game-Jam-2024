@@ -10,14 +10,31 @@ public class LadderMovement : MonoBehaviour
     private bool isClimbing;
 
     private Rigidbody2D rb;
-
+    private bool gameOver = false;
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        GameManager.Instance.OnGameWin += EndGame;
+        GameManager.Instance.OnGameLose += EndGame;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnGameWin -= EndGame;
+        GameManager.Instance.OnGameLose -= EndGame;
+    }
+
+    private void EndGame(object sender, EventArgs e)
+    {
+        gameOver = true;
     }
 
     void Update()
     {
+        if (gameOver) return;
+        
         vertical = Input.GetAxisRaw("Vertical");
 
         if (isLadder && Mathf.Abs(vertical) > 0f)
@@ -28,6 +45,8 @@ public class LadderMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (gameOver) return;
+        
         if (isClimbing)
         {
             rb.gravityScale = 0f;
