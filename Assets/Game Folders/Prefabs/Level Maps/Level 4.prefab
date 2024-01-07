@@ -35601,7 +35601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &128749150120770714
 Transform:
   m_ObjectHideFlags: 0
@@ -35643,7 +35643,9 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 370.27737, y: 14.346928}
-      - {x: -6.804413, y: 14.542507}
+      - {x: 370.54596, y: 35.786156}
+      - {x: 217.48071, y: 35.954006}
+      - {x: -5.3803406, y: 36.615616}
       - {x: -6.6739426, y: -9.868948}
       - {x: 370.3, y: -10.023365}
 --- !u!1001 &292521868861829789
@@ -36205,6 +36207,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -38241947, guid: 51d0760efe83722459f1bec1d9eb12a4, type: 3}
+    - target: {fileID: 4856463201414565754, guid: 4f1408063ca7a2c4fa441ea542c33758, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856463201414565754, guid: 4f1408063ca7a2c4fa441ea542c33758, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856463201414565754, guid: 4f1408063ca7a2c4fa441ea542c33758, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4856463201414565755, guid: 4f1408063ca7a2c4fa441ea542c33758, type: 3}
       propertyPath: m_RootOrder
       value: 3

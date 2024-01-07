@@ -40,10 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3845075166672152087}
+  - component: {fileID: 3845075166672152085}
   - component: {fileID: 3845075166672152084}
   - component: {fileID: 3845075166672152083}
   - component: {fileID: 3845075166672152082}
-  - component: {fileID: 3845075166672152085}
   - component: {fileID: 3845075166672152080}
   - component: {fileID: 1595762801422230752}
   m_Layer: 6
@@ -69,6 +69,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3845075166672152085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845075166672152086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce78fcae5890c649b70d898d6c0c995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 1
+  pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
+  pointHealthBar: {fileID: 6139202578256716673}
+  targetPosition: {x: 4, y: -2.3, z: 0}
+  moveSpeed: 5
+  srEnemy: {fileID: 3845075166672152084}
 --- !u!212 &3845075166672152084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -168,24 +186,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9375, y: 1.125}
   m_EdgeRadius: 0
---- !u!114 &3845075166672152085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845075166672152086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce78fcae5890c649b70d898d6c0c995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthMax: 1
-  pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
-  pointHealthBar: {fileID: 6139202578256716673}
-  targetPosition: {x: 4, y: -2.3, z: 0}
-  moveSpeed: 5
-  srEnemy: {fileID: 3845075166672152084}
 --- !u!95 &3845075166672152080
 Animator:
   serializedVersion: 5
