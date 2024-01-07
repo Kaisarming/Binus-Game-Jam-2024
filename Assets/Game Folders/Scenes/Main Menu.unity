@@ -1702,6 +1702,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 156101134268634425, guid: ad7c20776ee76b140aef74d8667805ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -42.62793
+      objectReference: {fileID: 0}
+    - target: {fileID: 156101134268634425, guid: ad7c20776ee76b140aef74d8667805ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 471445992162542874, guid: ad7c20776ee76b140aef74d8667805ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -64.35437
+      objectReference: {fileID: 0}
+    - target: {fileID: 471445992162542874, guid: ad7c20776ee76b140aef74d8667805ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.878052
+      objectReference: {fileID: 0}
     - target: {fileID: 1567260716160053881, guid: ad7c20776ee76b140aef74d8667805ab, type: 3}
       propertyPath: m_Name
       value: Level 5
@@ -3473,7 +3489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bobi Adventure
+  m_text: Bayu Adventure
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a749395091eb95940a87df807e4c588e, type: 2}
   m_sharedMaterial: {fileID: -1327615360548981564, guid: a749395091eb95940a87df807e4c588e, type: 2}
