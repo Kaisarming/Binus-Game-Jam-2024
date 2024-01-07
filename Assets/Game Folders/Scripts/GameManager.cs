@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 public class GameManager : MonoBehaviour
 {
     public event EventHandler OnGameWin;
+    public event EventHandler OnGameLose;
 
     public static GameManager Instance;
 
@@ -78,7 +79,23 @@ public class GameManager : MonoBehaviour
         // event game win!
         if (newState == Gamestate.Result)
         {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.MainkanSuara("Win");
+            }
+            
             OnGameWin?.Invoke(this, EventArgs.Empty);
+        }
+        
+        // event game lose
+        if (newState == Gamestate.GameOver)
+        {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.MainkanSuara("Lose");
+            }
+            
+            OnGameLose?.Invoke(this, EventArgs.Empty);
         }
 
         OnStateChanged?.Invoke(newState);

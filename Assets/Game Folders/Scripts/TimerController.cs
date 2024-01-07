@@ -76,11 +76,26 @@ public class TimerController : MonoBehaviour
         // start timer
         StartTimer();
 
-        GameManager.Instance.OnGameWin += EventStopTimer;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameWin += EventStopTimer;
+            GameManager.Instance.OnGameLose += EventStopTimer;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameWin -= EventStopTimer;
+            GameManager.Instance.OnGameLose -= EventStopTimer;
+        }
     }
 
     private void EventStopTimer(object sender, EventArgs e)
     {
+        if (!_isTimeRunning) return;
+        
         StopTimer();
     }
 

@@ -83,6 +83,8 @@ public class Player : MonoBehaviour
         {
             _timerController.OnTimesUp += PlayerDead;
         }
+
+        GameManager.Instance.OnGameWin += PlayerWin;
     }
 
     private void OnDestroy()
@@ -91,6 +93,8 @@ public class Player : MonoBehaviour
         {
             _timerController.OnTimesUp -= PlayerDead;
         }
+        
+        GameManager.Instance.OnGameWin -= PlayerWin;
     }
 
     // Start is called before the first frame update
@@ -178,16 +182,28 @@ public class Player : MonoBehaviour
 
     private void PlayerDead(object sender, EventArgs e)
     {
-        _isDead = true;
-
-        myRig.velocity = Vector2.zero;
-
-        Destroy(myRig);
-
         _animator.Play(_diedHash);
+        StopPlayer();
+        
+        // game lose
         GameManager.Instance.ChangeState(Gamestate.GameOver);
     }
+
+    public void PlayerWin(object sender, EventArgs e)
+    {
+        // play animation win if there
+        //....
+        // stop
+        StopPlayer();
+    }
     
+    private void StopPlayer()
+    {
+        _isDead = true;
+        myRig.velocity = Vector2.zero;
+        Destroy(myRig);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Finish"))
