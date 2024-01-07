@@ -44,6 +44,15 @@ public class AudioManager : MonoBehaviour
             find.source.Play();
         }
     }
+    
+    public void MainkanSuaraSekali(string findSound)
+    {
+        Sound find = Array.Find(allSounds, s => s.namaSound == findSound);
+        if(find != null)
+        {
+            find.source.PlayOneShot(find.source.clip);
+        }
+    }
 }
 
 
