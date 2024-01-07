@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public event EventHandler OnGameWin;
+    
     public static GameManager Instance;
 
     [SerializeField] private Gamestate currentState;
@@ -70,6 +72,13 @@ public class GameManager : MonoBehaviour
         }
 
         currentState = newState;
+
+        // event game win!
+        if (newState == Gamestate.Result)
+        {
+            OnGameWin?.Invoke(this, EventArgs.Empty);
+        }
+        
         OnStateChanged?.Invoke(newState);
     }
 

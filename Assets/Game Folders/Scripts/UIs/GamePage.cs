@@ -32,4 +32,9 @@ public class GamePage : Page
                 break;
         }
     }
+
+    public void SetLabelHeart(string text)
+    {
+        labelHeart.text = text;
+    }
 }

@@ -11,8 +11,7 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField] protected Page[] allPages;
     [SerializeField] private Image fading;
-    [SerializeField] private TextMeshProUGUI heartText;
-
+   
     private GameObject _player;
 
     private void Awake()
@@ -24,6 +23,11 @@ public class CanvasManager : MonoBehaviour
             var player = _player.GetComponent<Player>();
             player.HealthSystemPlayer.OnHealthChanged += HealthChanged;
         }
+    }
+
+    private void StateChangedEvent(Gamestate newstate)
+    {
+        Instance_OnStateChanged(newstate);
     }
 
     private void Start()
@@ -64,6 +68,7 @@ public class CanvasManager : MonoBehaviour
             case Gamestate.Pause:
                 break;
             case Gamestate.GameOver:
+                GameSetting.Instance.isWin = false;
                 SetPage(PageName.Result);
                 break;
             case Gamestate.Credit:
@@ -73,6 +78,8 @@ public class CanvasManager : MonoBehaviour
                 SetPage(PageName.Level);
                 break;
             case Gamestate.Result:
+                GameSetting.Instance.isWin = true;
+                SetPage(PageName.Result);
                 break;
             case Gamestate.Tutorial:
                 SetPage(PageName.tutorial);
@@ -97,6 +104,7 @@ public class CanvasManager : MonoBehaviour
     private void HealthChanged(object sender, EventArgs e)
     {
         var player = _player.GetComponent<Player>();
-        heartText.text = player.HealthSystemPlayer.GetHealth().ToString();
+        var gamePage = GetComponentInChildren<GamePage>();
+        gamePage.SetLabelHeart(player.HealthSystemPlayer.GetHealth().ToString());
     }
 }

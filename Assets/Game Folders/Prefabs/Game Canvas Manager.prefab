@@ -1111,6 +1111,7 @@ MonoBehaviour:
   allPages: []
   fading: {fileID: 2109869379}
   heartText: {fileID: 3175803121905526387}
+  titleResult: {fileID: 389223695}
 --- !u!1 &3175803120105560741
 GameObject:
   m_ObjectHideFlags: 0
