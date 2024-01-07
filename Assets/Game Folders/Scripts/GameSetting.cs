@@ -15,7 +15,7 @@ public class GameSetting : MonoBehaviour
     [SerializeField] private GameObject[] allLevels;
 
     private GameObject _currentActiveLevel;
-
+    
     public GameObject CurrentActiveLevel
     {
         get { return _currentActiveLevel; }
