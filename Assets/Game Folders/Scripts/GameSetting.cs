@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-5)]
 public class GameSetting : MonoBehaviour
 {
     public static GameSetting Instance;
@@ -13,12 +14,20 @@ public class GameSetting : MonoBehaviour
 
     [SerializeField] private GameObject[] allLevels;
 
-    public delegate void ItemCollectDelegate(ItemType tipe , int jumlah);
+    private GameObject _currentActiveLevel;
+
+    public GameObject CurrentActiveLevel
+    {
+        get { return _currentActiveLevel; }
+    }
+
+    public delegate void ItemCollectDelegate(ItemType tipe, int jumlah);
+
     public event ItemCollectDelegate OnItemCollected;
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -28,12 +37,13 @@ public class GameSetting : MonoBehaviour
 
     private void SetupLevel()
     {
-        if(GameManager.Instance == null)
+        if (GameManager.Instance == null)
         {
             return;
         }
 
-        Instantiate(allLevels[GameManager.Instance.GetActiveLevelData().levelIndex], transform.position, Quaternion.identity);
+        _currentActiveLevel = Instantiate(allLevels[GameManager.Instance.GetActiveLevelData().levelIndex],
+            transform.position, Quaternion.identity);
     }
 
     public void CollectItem(ItemType tipe)
