@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject pfHealthBar;
     [SerializeField] private Transform pointHealthBar;
     private HealthSystem _healthSystem;
-
     public HealthSystem HealthSystemPlayer
     {
         get
@@ -21,6 +20,9 @@ public class Player : MonoBehaviour
             return _healthSystem;
         }
     }
+    
+    // ground layer mask
+    [SerializeField] private LayerMask groundLayerMask;
     
     // attack area parent
     [SerializeField] private Transform attackAreaParent;
@@ -176,7 +178,8 @@ public class Player : MonoBehaviour
     private bool IsOnTheGround()
     {
         // A raycast shot from an origin in a direction for a certain distance, that means it can tell us if it hits anything
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1f, 0), Vector2.down, 0.2f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1f, 0),
+            Vector2.down, 0.2f, groundLayerMask);
         return hit.collider != null;
     }
 
@@ -201,7 +204,7 @@ public class Player : MonoBehaviour
     {
         _isDead = true;
         myRig.velocity = Vector2.zero;
-        Destroy(myRig);
+        Destroy(myRig, 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

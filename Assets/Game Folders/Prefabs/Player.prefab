@@ -268,10 +268,13 @@ MonoBehaviour:
   healthMax: 5
   pfHealthBar: {fileID: 8761742499161593724, guid: 52a735cbf46f1244d9e29a7bcacf94d6, type: 3}
   pointHealthBar: {fileID: 6038843776845453133}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   attackAreaParent: {fileID: 2822204607891508745}
   moveSpeed: 5
   myRig: {fileID: 7907056498780924731}
-  jump: 10
+  jump: 18
   sr: {fileID: 7907056498780924730}
 --- !u!114 &1598178144596854343
 MonoBehaviour:
