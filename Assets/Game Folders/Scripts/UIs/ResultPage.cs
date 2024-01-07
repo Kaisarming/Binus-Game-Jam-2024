@@ -5,6 +5,10 @@ using UnityEngine.UI;
 public class ResultPage : Page
 {
     [SerializeField] private TMP_Text labelResult;
+    [SerializeField] private GameObject frameLabelCoin;
+    [SerializeField] private TMP_Text labelCoin;
+    [SerializeField] private TMP_Text labelCoinOnGamePlay;
+    [SerializeField] private TMP_Text labelTime;
 
     [SerializeField] private Button homeButton;
     [SerializeField] private Button restartButton;
@@ -29,10 +33,13 @@ public class ResultPage : Page
         if (GameSetting.Instance.isWin)
         {
             labelResult.text = $"<color=green>YOU WIN !</color>";
+            frameLabelCoin.SetActive(true);
+            labelCoin.text = labelCoinOnGamePlay.text;
         }
         else
         {
             labelResult.text = $"<color=red>YOU LOSE !</color>";
+            frameLabelCoin.SetActive(false);
         }
     }
 }

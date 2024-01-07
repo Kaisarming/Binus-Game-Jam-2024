@@ -29008,6 +29008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sky
       objectReference: {fileID: 0}
+    - target: {fileID: 4856463201414565757, guid: 4f1408063ca7a2c4fa441ea542c33758, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f1408063ca7a2c4fa441ea542c33758, type: 3}
 --- !u!4 &2865791391193869154 stripped
