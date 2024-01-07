@@ -65,6 +65,11 @@ MonoBehaviour:
     vol: 0.8
     isLooping: 0
     source: {fileID: 0}
+  - namaSound: Win
+    klip: {fileID: 8300000, guid: 940c1bdc82b2f7448b286aaff6ad91b0, type: 3}
+    vol: 0.8
+    isLooping: 0
+    source: {fileID: 0}
   - namaSound: BGM
     klip: {fileID: 8300000, guid: e2422b1e7c70d2249b8b2d7576e64c85, type: 3}
     vol: 0.5
